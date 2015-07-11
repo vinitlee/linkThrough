@@ -1,0 +1,65 @@
+<html>
+<head>
+	<title>blink</title>
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<style>
+	body {
+		font-family: Roboto;
+		font-size: 10pt;
+		line-height: 1.2em;
+	}
+	a {
+		color: #B30;
+		text-decoration: none;
+	}
+	iframe.blintz {
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: 0;
+		border: none;
+		pointer-events:none;
+		background-color: white;
+		display: none;
+		clip-path: circle(50%,50%,75%);
+	}
+	</style>
+</head>
+<body>
+<p>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac dui sit amet erat mollis gravida eu vel orci. Donec vel augue efficitur, accumsan enim sed, aliquet magna. Praesent sed enim nunc. <a href="./index.html#1">Etiam</a> feugiat posuere lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique suscipit mi ut interdum. Donec id rhoncus felis, sit amet lobortis leo. Vestibulum accumsan non justo eu gravida.
+</p>
+<p>
+	<a href="http://nodejs.org/">Pellentesque</a> pulvinar malesuada tempor. Integer varius ex mauris, in viverra arcu faucibus quis. In pharetra ligula non nibh blandit convallis. Cras consequat neque quis erat faucibus porttitor. In condimentum est erat, vitae congue diam tempor non. Nunc malesuada lacus vulputate, imperdiet mi eu, tempor neque. Suspendisse nec tempor ligula. Aliquam vulputate nibh ut laoreet auctor. Cras urna augue, mollis sed egestas a, finibus eu metus. Ut ac semper neque, in tempus tortor. Sed et interdum justo, id congue nulla.
+</p>
+<p>
+	Etiam viverra tincidunt eros quis commodo. Nam cursus iaculis bibendum. Aliquam et nibh nec arcu tristique sollicitudin sed at arcu. Curabitur fermentum purus turpis, eget venenatis nunc varius id. Nullam a pharetra sapien. Vivamus sagittis odio metus, quis sollicitudin dui pretium eu. Vestibulum vehicula est ut facilisis scelerisque. Integer pulvinar consectetur mollis. Mauris at ipsum et purus tempor ornare. Aliquam commodo, metus non volutpat laoreet, erat diam consequat neque, non convallis quam mi eu nisi. Ut et lacinia sem. Vestibulum vestibulum maximus odio. Maecenas venenatis nisi non elit dignissim ultricies. Etiam non nunc urna. Maecenas pharetra tellus vitae turpis posuere euismod. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+</p>
+<p>
+	Nulla porta sed ipsum aliquet facilisis. Praesent varius volutpat elit, at viverra erat ullamcorper eget. Maecenas porttitor viverra massa vitae convallis. Donec dictum nunc et viverra pellentesque. Vivamus pellentesque cursus nibh, vitae fringilla nisl malesuada suscipit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque bibendum mi ac cursus venenatis. Pellentesque bibendum arcu et tortor gravida venenatis. Vestibulum congue libero in aliquet congue. Nulla ac ipsum est. Etiam et lacus lobortis, rutrum libero nec, condimentum sapien. Sed vulputate elit elit, eu porta orci mollis sed. Vivamus vitae magna id nulla mollis rutrum. Nam ultricies metus vel massa finibus lobortis.
+</p>
+<p>
+	Maecenas ultricies at libero quis lacinia. Ut tincidunt imperdiet malesuada. Mauris placerat elementum nunc id finibus. Nulla in consequat nisl. Suspendisse porta vehicula nibh, et elementum lorem commodo in. In vulputate vehicula tellus, vel condimentum velit congue sed. Quisque efficitur enim vel quam scelerisque egestas. Phasellus commodo elit in sem rutrum efficitur. Quisque ut enim at nibh feugiat efficitur.
+</p>
+</body>
+<script>
+	$(function() {
+		$('a').mouseover(function (e) {
+			$t = $(this)
+			console.log($t.attr('href'))
+			blintz = $('<iframe>',{
+				'src':$t.attr('href'),
+				'class':'blintz'
+			})
+			$t.after(blintz)
+			blintz.load(function() {
+				blintz.show()
+			})
+			// $t.mouseout(function (e) {
+			// 	blintz.remove()
+			// })
+		})
+	});
+</script>
+</html>
